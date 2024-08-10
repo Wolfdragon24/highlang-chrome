@@ -1,0 +1,10 @@
+{
+  "name": "HighLang",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "base.html",
+    "default_icon": "highlang.png"
+  }
+}
