@@ -1,7 +1,11 @@
 let selection = [];
 
 document.addEventListener("mouseup", function (e) {
-    selection = window.getSelection().getRangeAt(0).getClientRects();
+    const tempSelection = window.getSelection();
+
+    if (tempSelection && tempSelection.rangeCount > 0) {
+        selection = tempSelection.getRangeAt(0).getClientRects();
+    }
 });
 
 document.addEventListener("mousemove", function (e) {
