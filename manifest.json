@@ -4,7 +4,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_popup": "base.html",
+    "default_popup": "html/settings.html",
     "default_icon": "images/icons/highlang-512.png"
   },
   "content_scripts": [
@@ -21,5 +21,12 @@
     "32": "images/icons/highlang-32.png",
     "48": "images/icons/highlang-48.png",
     "128": "images/icons/highlang-128.png"
-  }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "optional_host_permissions":[
+    "https://*/*",
+    "http://*/*"
+  ]
 }
