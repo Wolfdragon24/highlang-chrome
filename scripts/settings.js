@@ -1,6 +1,6 @@
 const apiRegex = /https?:\/\/[\d\w:\/\.]+/;
 
-document.onload = function pullData() {
+window.onload = function pullData() {
   chrome.storage.local.get('apiURL', function(data) {
     if (data.apiURL !== undefined) {
       document.getElementById("translateAPI").value = data.apiURL;
