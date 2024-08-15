@@ -1,10 +1,64 @@
 <html>
-  <body>
-    <h1>Welcome to HighLang - Chrome Edition</h1>
+  <style>
+    body {
+      min-width: 300px;
+      max-height: 100%;
+      background-color: #c2bdb9;
+    }
 
-    <input type="input" id="translateAPI" placeholder="Enter the URL for your translation API">
-    <button onclick="saveAPI()">Save</button>
+    #result {
+      color: #f3564e;
+      display: none;
+      font-weight: bolder;
+    }
+
+    .text {
+      font-size: 75%;
+    }
+
+    #saveAPI {
+      background-color: #9ae0d6;
+      padding: 5px 10px;
+      color: black;
+      border: none;
+      display: block;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    .settingsTable {
+      width: 100%;
+    }
+
+    .settingsEntry {
+      background-color: #c2bdb9;
+      border-color: #8d8a88;
+      width: 100%;
+    }
+   </style>
+  <body>
+    <h2>HighLang - Chrome Edition</h2>
+
+    <h4>Enter URL and API key for your translation API:</h4>
+
+    <table class="settingsTable">
+      <tr>
+        <td><div class="text">URL</div></td>
+        <td><input class="settingsEntry" type="input" id="translateAPI" placeholder="Enter API URL"></td>
+      </tr>
+      <tr>
+        <td><div class="text">API Key</div></td>
+        <td><input class="settingsEntry" type="input" id="translateKey" placeholder="Enter API key"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button id="saveAPI">Save</button></td>
+      </tr>
+    </table>
+
     <div id="result"></div>
+    <br>
+    <div><i>Warning: You are giving this API access to modify your browser and potentially run code, ensure you trust the API you use.</i></div>
+
   </body>
   <script src="../scripts/settings.js"></script>
 </html>

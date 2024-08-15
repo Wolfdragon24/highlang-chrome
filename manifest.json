@@ -10,6 +10,7 @@
   "content_scripts": [
     {
       "js": ["scripts/detect.js"],
+      "css": ["styles/popup.css"],
       "matches": [
         "http://*/*",
         "https://*/*"
