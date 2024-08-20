@@ -9,17 +9,27 @@ window.onload = function pullData() {
 };
 
 document.getElementById("saveAPI").addEventListener("click", saveAPI);
+document.getElementById("clearSaved").addEventListener("click", clearSavedAPI);
+
+function result(type, message) {
+  const result = document.getElementById("result");
+  result.innerText = message;
+  result.style.display = "block";
+
+  if (type === "error") {
+    result.style.color = "#f3564e";
+  } else {
+    result.style.color = "#4aad4d";
+  }
+}
 
 function saveAPI() {
   const api = document.getElementById("translateAPI").value;
   const extracted = api.match(apiRegex);
 
-  const result = document.getElementById("result");
-
   // Check if the inputted value is a valid URL
   if (api === '' || extracted === null) {
-    result.innerText = "Error: Your API URL is invalid, please try again.";
-    result.style.display = "block";
+    result("error", "Error: Your API URL is invalid, please try again.");
     return;
   }
 
@@ -29,14 +39,12 @@ function saveAPI() {
   chrome.storage.local.get(null, function(data) {
     if (data.apiURL !== undefined) {
       if (data.apiKey === key) {
-        result.innerText = "Error: This API URL has already been saved.";
-        result.style.display = "block";
+        result("error", "Error: This API URL has already been saved.");
         return;
       }
       
       chrome.storage.local.set({apiKey: key}, function() {
-        result.innerText = "Success: Your API Key has been updated.";
-        result.style.display = "block";
+        result("success", "Success: Your API Key has been updated.");
       });
       return;
     }
@@ -44,7 +52,15 @@ function saveAPI() {
 
   // Informs user of success
   chrome.storage.local.set({apiURL: extracted[0], apiKey: key}, function() {
-    result.innerText = "Success: Your API URL and Key have been saved.";
-    result.style.display = "block";
+    result("success", "Success: Your API URL and Key have been saved.");
+  });
+}
+
+function clearSavedAPI() {
+  chrome.storage.local.remove(["apiURL", "apiKey"], function() {
+    result("success", "Success: Your saved settings have been cleared.");
+
+    document.getElementById("translateAPI").value = "";
+    document.getElementById("translateKey").value = "";
   });
 }

@@ -7,7 +7,6 @@
     }
 
     #result {
-      color: #f3564e;
       display: none;
       font-weight: bolder;
     }
@@ -18,6 +17,16 @@
 
     #saveAPI {
       background-color: #9ae0d6;
+      padding: 5px 10px;
+      color: black;
+      border: none;
+      display: block;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    #clearSaved {
+      background-color: #da8484;
       padding: 5px 10px;
       color: black;
       border: none;
@@ -53,9 +62,12 @@
       <tr>
         <td colspan="2"><button id="saveAPI">Save</button></td>
       </tr>
+      <tr>
+        <td colspan="2"><button id="clearSaved">Clear Saved API</button></td>
+      </tr>
     </table>
 
-    <div id="result"></div>
+    <div id="result" class="warn"></div>
     <br>
     <div><i>Warning: You are giving this API access to modify your browser and potentially run code, ensure you trust the API you use.</i></div>
 
