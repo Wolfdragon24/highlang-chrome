@@ -1,6 +1,6 @@
 {
   "name": "HighLang",
-  "description": "Browser Extension that Translates Highlighted Text",
+  "description": "Browser Extension that Translates Highlighted Text - Queries saved API and displays returned HTMl data in a popup",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
